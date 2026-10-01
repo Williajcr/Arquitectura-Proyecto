@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extractos - Banco Accesible</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Saltar al contenido principal</a>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="dashboard.html">🏦 Banco Accesible</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="dashboard.html">Resumen</a></li>
+            <li class="nav-item"><a class="nav-link" href="transferencias.html">Transferencias</a></li>
+            <li class="nav-item"><a class="nav-link" href="pagar-servicios.html">Pagar servicios</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="extractos.html">Extractos</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html">Cerrar sesión</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="container my-5">
+    <h1 class="mb-4">Solicitar extracto</h1>
+
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <form id="formExtracto" novalidate>
+          <div class="mb-3">
+            <label for="cuentaExtracto" class="form-label">Cuenta</label>
+            <select class="form-select" id="cuentaExtracto" required>
+              <option value="">Seleccione una cuenta</option>
+              <option value="ahorros">Ahorros **** 4521</option>
+              <option value="corriente">Corriente **** 7832</option>
+              <option value="tarjeta">Tarjeta de crédito **** 9014</option>
+            </select>
+            <div class="invalid-feedback">Debe seleccionar una cuenta.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="mesExtracto" class="form-label">Mes</label>
+            <select class="form-select" id="mesExtracto" required>
+              <option value="">Seleccione un mes</option>
+              <option value="1">Enero</option>
+              <option value="2">Febrero</option>
+              <option value="3">Marzo</option>
+              <option value="4">Abril</option>
+            </select>
+            <div class="invalid-feedback">Debe seleccionar un mes.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="anioExtracto" class="form-label">Año</label>
+            <select class="form-select" id="anioExtracto" required>
+              <option value="">Seleccione un año</option>
+              <option value="2025">2025</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+            </select>
+            <div class="invalid-feedback">Debe seleccionar un año.</div>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">Generar extracto</button>
+        </form>
+
+        <div id="mensajeExtracto" class="alert alert-success mt-3" role="alert" hidden>
+          ✅ Extracto generado. Puede descargarlo abajo.
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <section id="resultadoExtracto" hidden>
+          <h2 class="h4 mb-3">Extracto generado</h2>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <caption>Resumen del periodo seleccionado</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Concepto</th>
+                  <th scope="col">Valor</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Saldo inicial</th><td>$1.200.000</td></tr>
+                <tr><th scope="row">Total ingresos</th><td class="text-success">+$2.800.000</td></tr>
+                <tr><th scope="row">Total egresos</th><td class="text-danger">-$2.500.000</td></tr>
+                <tr><th scope="row">Saldo final</th><td><strong>$1.500.000</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <button type="button" class="btn btn-outline-primary" id="btnDescargar">
+            Descargar extracto en PDF
+          </button>
+          <div id="mensajeDescarga" class="alert alert-info mt-3" role="alert" hidden>
+            📄 En un sistema real, aquí se iniciaría la descarga del PDF.
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-light text-center py-3 mt-5">
+    <div class="container">
+      <p class="mb-0">© 2025 Banco Accesible. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

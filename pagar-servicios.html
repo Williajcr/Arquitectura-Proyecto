@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagar servicios - Banco Accesible</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Saltar al contenido principal</a>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="dashboard.html">🏦 Banco Accesible</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="dashboard.html">Resumen</a></li>
+            <li class="nav-item"><a class="nav-link" href="transferencias.html">Transferencias</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="pagar-servicios.html">Pagar servicios</a></li>
+            <li class="nav-item"><a class="nav-link" href="extractos.html">Extractos</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html">Cerrar sesión</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <h1 class="mb-4">Pago de servicios</h1>
+
+        <form id="formPago" novalidate>
+          <div class="mb-3">
+            <label for="servicio" class="form-label">Servicio a pagar</label>
+            <select class="form-select" id="servicio" required>
+              <option value="">Seleccione un servicio</option>
+              <option value="luz">Energía eléctrica</option>
+              <option value="agua">Acueducto y alcantarillado</option>
+              <option value="gas">Gas natural</option>
+              <option value="internet">Internet / Telefonía</option>
+            </select>
+            <div class="invalid-feedback">Debe seleccionar un servicio.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="referencia" class="form-label">Número de referencia</label>
+            <input type="text" class="form-control" id="referencia"
+                   pattern="[0-9]{8,12}" required
+                   placeholder="Entre 8 y 12 dígitos">
+            <div class="invalid-feedback">Ingrese una referencia válida (8 a 12 dígitos).</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="cuentaPago" class="form-label">Cuenta para debitar</label>
+            <select class="form-select" id="cuentaPago" required>
+              <option value="">Seleccione una cuenta</option>
+              <option value="ahorros">Ahorros **** 4521 ($1.500.000)</option>
+              <option value="corriente">Corriente **** 7832 ($850.000)</option>
+            </select>
+            <div class="invalid-feedback">Debe seleccionar una cuenta.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="valorPago" class="form-label">Valor a pagar</label>
+            <div class="input-group">
+              <span class="input-group-text">$</span>
+              <input type="number" class="form-control" id="valorPago"
+                     min="1000" max="5000000" step="100" required>
+              <div class="invalid-feedback">El valor debe ser entre $1.000 y $5.000.000.</div>
+            </div>
+          </div>
+
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="dashboard.html" class="btn btn-outline-secondary">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Confirmar pago</button>
+          </div>
+        </form>
+
+        <div id="mensajeExito" class="alert alert-success mt-3" role="alert" hidden>
+          ✅ Pago realizado correctamente.
+        </div>
+        <div id="mensajeErrorPago" class="alert alert-danger mt-3" role="alert" hidden></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-light text-center py-3 mt-5">
+    <div class="container">
+      <p class="mb-0">© 2025 Banco Accesible. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
